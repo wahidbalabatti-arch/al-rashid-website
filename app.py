@@ -26,44 +26,41 @@ def cover():
 
 
 # ============================================================
-# WEBSITE HTML & EMBEDDED CSS/JS
+# WEBSITE HTML
 # ============================================================
 
 HTML = r"""
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Al Rashid Perfume & Attar - Luxury artisanal fragrances, rare traditional attars, and premium timepieces in Kolar, Karnataka.">
-<meta name="keywords" content="Al Rashid, Luxury Perfume, Oud, Perfume Kolar, Attar, Designer Watches Kolar">
-<meta name="theme-color" content="#020d08">
-<title>Al Rashid | Luxury Perfume & Attar</title>
 
-<!-- Google Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<meta name="description"
+      content="Al Rashid Perfume & Attar - Premium perfumes, attars and watches in Kolar, Karnataka.">
+
+<meta name="keywords"
+      content="Al Rashid, Al Rashid Perfume, Attar, Perfume Kolar, Premium Perfume, Watches Kolar">
+
+<meta name="theme-color"
+      content="#03140d">
+
+<title>
+Al Rashid | Perfume & Attar
+</title>
+
 
 <style>
-/* ============================================================
-   VARIABLES & THEME CONFIGURATION
-   ============================================================ */
-:root {
-    --bg-dark: #020d08;
-    --bg-card: rgba(8, 28, 19, 0.65);
-    --gold-primary: #e3bd61;
-    --gold-gradient: linear-gradient(135deg, #fceeb5 0%, #d9ad45 50%, #9e751b 100%);
-    --gold-glow: rgba(217, 173, 69, 0.35);
-    --text-main: #f5f5f7;
-    --text-sub: #b0c2b7;
-    --glass-border: rgba(217, 173, 69, 0.22);
-    --nav-height: 80px;
-}
 
 /* ============================================================
-   RESET & BASE STYLES
+   RESET
    ============================================================ */
+
 * {
     margin: 0;
     padding: 0;
@@ -75,848 +72,1436 @@ html {
 }
 
 body {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    background: var(--bg-dark);
-    color: var(--text-main);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    background: #03140d;
+
+    color: #f5e7b2;
+
     overflow-x: hidden;
-    position: relative;
+
 }
 
-/* Ambient Background Lights */
-body::before, body::after {
-    content: "";
-    position: fixed;
-    border-radius: 50%;
-    filter: blur(140px);
-    z-index: -1;
-    pointer-events: none;
-}
-body::before {
-    top: -10%;
-    left: -10%;
-    width: 50vw;
-    height: 50vw;
-    background: rgba(217, 173, 69, 0.08);
-}
-body::after {
-    bottom: 10%;
-    right: -10%;
-    width: 60vw;
-    height: 60vw;
-    background: rgba(4, 45, 29, 0.25);
-}
-
-/* Typographic Hierarchy */
-h1, h2, h3, .brand-font {
-    font-family: 'Cinzel', serif;
-}
-
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-    width: 8px;
-}
-::-webkit-scrollbar-track {
-    background: var(--bg-dark);
-}
-::-webkit-scrollbar-thumb {
-    background: #0d3a26;
-    border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-    background: var(--gold-primary);
-}
 
 /* ============================================================
-   NAVIGATION (GLASSMORPHISM)
+   NAVIGATION
    ============================================================ */
+
 nav {
+
     position: fixed;
+
     top: 0;
     left: 0;
+
     width: 100%;
-    height: var(--nav-height);
+
+    height: 76px;
+
     z-index: 1000;
+
     display: flex;
+
     align-items: center;
+
     justify-content: space-between;
-    padding: 0 6%;
-    background: rgba(2, 13, 8, 0.75);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid var(--glass-border);
-    transition: all 0.4s ease;
+
+    padding: 10px 5%;
+
+    background:
+        rgba(2, 18, 11, 0.96);
+
+    backdrop-filter: blur(15px);
+
+    border-bottom:
+        1px solid rgba(217, 173, 69, 0.35);
+
 }
+
 
 .nav-logo {
+
     display: flex;
+
     align-items: center;
-    gap: 14px;
-    text-decoration: none;
+
+    gap: 12px;
+
+    color: #d9ad45;
+
+    font-size: 24px;
+
+    font-weight: bold;
+
 }
+
 
 .nav-logo img {
-    width: 44px;
-    height: 44px;
+
+    width: 48px;
+
+    height: 48px;
+
     object-fit: contain;
+
     border-radius: 50%;
-    border: 1px solid var(--gold-primary);
-    box-shadow: 0 0 12px var(--gold-glow);
+
 }
 
-.nav-logo span {
-    font-size: 22px;
-    font-weight: 700;
-    background: var(--gold-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    letter-spacing: 2px;
-}
 
 .nav-links {
+
     display: flex;
+
     align-items: center;
-    gap: 32px;
+
+    gap: 30px;
+
     list-style: none;
+
 }
+
 
 .nav-links a {
-    color: var(--text-sub);
+
+    color: #ffffff;
+
     text-decoration: none;
-    font-size: 14px;
-    font-weight: 500;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    transition: all 0.3s ease;
-    position: relative;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 15px;
+
+    transition: 0.3s;
+
 }
 
-.nav-links a::after {
-    content: '';
-    position: absolute;
-    bottom: -6px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: var(--gold-gradient);
-    transition: width 0.3s ease;
-}
 
 .nav-links a:hover {
-    color: var(--text-main);
+
+    color: #d9ad45;
+
 }
 
-.nav-links a:hover::after {
-    width: 100%;
-}
 
 .whatsapp-nav {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 22px;
-    border-radius: 50px;
-    background: var(--gold-gradient);
-    color: #020d08 !important;
-    font-weight: 700;
-    font-size: 13px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
+
+    display: inline-block;
+
+    padding: 12px 22px;
+
+    border-radius: 30px;
+
+    background: #d9ad45;
+
+    color: #071b11 !important;
+
+    font-family: Arial, sans-serif;
+
+    font-weight: bold;
+
     text-decoration: none;
-    box-shadow: 0 4px 20px var(--gold-glow);
-    transition: all 0.3s ease;
+
+    transition: 0.3s;
+
 }
+
 
 .whatsapp-nav:hover {
+
     transform: translateY(-2px);
-    box-shadow: 0 6px 25px rgba(217,173,69,.5);
+
+    box-shadow:
+        0 8px 25px rgba(217,173,69,.3);
+
 }
 
-.mobile-toggle {
-    display: none;
-    background: none;
-    border: none;
-    color: var(--gold-primary);
-    font-size: 26px;
-    cursor: pointer;
-}
 
 /* ============================================================
-   HERO SECTION
+   HERO
    ============================================================ */
+
 .hero {
+
     min-height: 100vh;
+
     position: relative;
+
     display: flex;
+
     align-items: center;
+
     justify-content: center;
+
     text-align: center;
-    padding: calc(var(--nav-height) + 40px) 20px 80px;
-    background-color: var(--bg-dark);
+
+    padding:
+        120px 20px 80px;
+
+    background-color: #03140d;
+
     background-image:
-        radial-gradient(circle at center, rgba(3, 20, 13, 0.4) 0%, rgba(2, 13, 8, 0.95) 100%),
+
+        linear-gradient(
+            rgba(2, 16, 10, 0.60),
+            rgba(2, 16, 10, 0.88)
+        ),
+
         url("/cover");
+
     background-size: cover;
+
     background-position: center;
-    background-attachment: fixed;
+
+    background-repeat: no-repeat;
+
 }
+
+
+.hero::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(217,173,69,.08),
+            transparent 55%
+        );
+
+    pointer-events: none;
+
+}
+
 
 .hero-content {
+
     position: relative;
+
     z-index: 2;
-    max-width: 900px;
-    animation: fadeIn 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+
+    max-width: 1000px;
+
+    width: 100%;
+
 }
 
-.hero-badge {
-    display: inline-block;
-    padding: 6px 18px;
-    border-radius: 30px;
-    background: rgba(217, 173, 69, 0.1);
-    border: 1px solid rgba(217, 173, 69, 0.3);
-    color: var(--gold-primary);
-    font-size: 12px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    margin-bottom: 25px;
-}
 
 .hero-logo {
-    width: 130px;
-    height: 130px;
+
+    width: 145px;
+
+    height: 145px;
+
     object-fit: contain;
-    margin-bottom: 25px;
-    border-radius: 50%;
-    padding: 8px;
-    background: rgba(2, 13, 8, 0.5);
-    border: 1px solid var(--glass-border);
-    box-shadow: 0 0 40px var(--gold-glow);
-    animation: float 6s ease-in-out infinite;
+
+    margin-bottom: 15px;
+
+    filter:
+        drop-shadow(
+            0 0 25px
+            rgba(217,173,69,.65)
+        );
+
 }
+
 
 .hero h1 {
-    font-size: clamp(48px, 8vw, 95px);
-    font-weight: 700;
-    line-height: 1.05;
-    background: var(--gold-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    letter-spacing: 3px;
-    text-shadow: 0 10px 30px rgba(0,0,0,0.5);
+
+    font-size:
+        clamp(55px, 9vw, 110px);
+
+    line-height: 1;
+
+    color: #e8bd59;
+
+    letter-spacing: 2px;
+
+    text-shadow:
+        0 5px 30px rgba(0,0,0,.8);
+
 }
+
 
 .hero h2 {
-    margin-top: 15px;
-    font-size: clamp(14px, 2.5vw, 22px);
-    letter-spacing: 10px;
-    color: var(--text-sub);
-    font-weight: 400;
+
+    margin-top: 20px;
+
+    font-size:
+        clamp(18px, 3vw, 30px);
+
+    letter-spacing: 8px;
+
+    color: #ffffff;
+
 }
+
 
 .gold-line {
-    width: 120px;
-    height: 1px;
-    background: var(--gold-gradient);
+
+    width: 180px;
+
+    height: 2px;
+
+    background: #d9ad45;
+
     margin: 30px auto;
-    position: relative;
+
 }
-.gold-line::after {
-    content: "◆";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: var(--gold-primary);
-    font-size: 10px;
-    background: var(--bg-dark);
-    padding: 0 8px;
-}
+
 
 .hero-description {
-    max-width: 680px;
-    margin: 0 auto 40px;
-    color: var(--text-sub);
-    font-size: 17px;
+
+    max-width: 760px;
+
+    margin:
+        0 auto 32px;
+
+    color: #eeeeee;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 18px;
+
     line-height: 1.8;
-    font-weight: 300;
+
 }
 
-/* Buttons */
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+
 .buttons {
+
     display: flex;
+
     align-items: center;
+
     justify-content: center;
+
     flex-wrap: wrap;
-    gap: 20px;
+
+    gap: 15px;
+
 }
+
 
 .button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    padding: 16px 36px;
-    border-radius: 50px;
+
+    display: inline-block;
+
+    padding: 15px 30px;
+
+    border-radius: 40px;
+
     text-decoration: none;
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    cursor: pointer;
+
+    font-family: Arial, sans-serif;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+
 }
+
 
 .button-gold {
-    background: var(--gold-gradient);
-    color: #020d08;
-    box-shadow: 0 10px 30px var(--gold-glow);
+
+    background: #d9ad45;
+
+    color: #061b12;
+
 }
 
-.button-gold:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 15px 35px rgba(217,173,69,0.5);
-}
 
 .button-outline {
-    border: 1px solid var(--glass-border);
-    color: var(--text-main);
-    background: rgba(8, 28, 19, 0.4);
-    backdrop-filter: blur(10px);
+
+    border:
+        1px solid #d9ad45;
+
+    color: #d9ad45;
+
+    background:
+        rgba(0,0,0,.12);
+
 }
 
-.button-outline:hover {
-    border-color: var(--gold-primary);
-    color: var(--gold-primary);
+
+.button:hover {
+
     transform: translateY(-4px);
-    background: rgba(217, 173, 69, 0.05);
+
+    box-shadow:
+        0 12px 30px
+        rgba(217,173,69,.25);
+
 }
+
 
 /* ============================================================
-   SECTIONS GENERAL
+   SECTION
    ============================================================ */
+
 section {
-    padding: 120px 6%;
-    position: relative;
+
+    padding: 100px 6%;
+
 }
+
 
 .section-title {
+
     text-align: center;
-    margin-bottom: 70px;
+
+    margin-bottom: 55px;
+
 }
 
-.section-title .subtitle {
-    color: var(--gold-primary);
-    font-size: 12px;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    display: block;
-    margin-bottom: 10px;
-}
 
 .section-title h2 {
-    font-size: clamp(32px, 4vw, 52px);
-    background: var(--gold-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    letter-spacing: 1px;
+
+    color: #e3bd61;
+
+    font-size:
+        clamp(35px, 5vw, 55px);
+
 }
 
-/* ============================================================
-   COLLECTION SECTION
-   ============================================================ */
-.cards {
-    max-width: 1200px;
-    margin: auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 30px;
+
+.section-title p {
+
+    margin-top: 15px;
+
+    color: #999999;
+
+    font-family: Arial, sans-serif;
+
 }
+
+
+/* ============================================================
+   COLLECTION
+   ============================================================ */
+
+.cards {
+
+    max-width: 1200px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(240px, 1fr)
+        );
+
+    gap: 25px;
+
+}
+
 
 .card {
-    padding: 45px 30px;
+
+    padding: 42px 25px;
+
     text-align: center;
-    background: var(--bg-card);
-    border: 1px solid var(--glass-border);
-    border-radius: 24px;
-    backdrop-filter: blur(15px);
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    position: relative;
-    overflow: hidden;
+
+    background:
+        linear-gradient(
+            145deg,
+            #0d301f,
+            #061b12
+        );
+
+    border:
+        1px solid #705621;
+
+    border-radius: 20px;
+
+    transition: 0.4s;
+
 }
 
-.card::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at top right, rgba(217,173,69,0.12), transparent 60%);
-    opacity: 0;
-    transition: opacity 0.4s ease;
-}
 
 .card:hover {
+
     transform: translateY(-10px);
-    border-color: var(--gold-primary);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.6), 0 0 30px var(--gold-glow);
+
+    border-color: #d9ad45;
+
+    box-shadow:
+        0 20px 50px
+        rgba(0,0,0,.45);
+
 }
 
-.card:hover::before {
-    opacity: 1;
-}
 
 .card-icon {
-    font-size: 48px;
-    margin-bottom: 25px;
-    display: inline-block;
-    filter: drop-shadow(0 4px 10px rgba(0,0,0,0.3));
-    transition: transform 0.4s ease;
+
+    font-size: 50px;
+
+    margin-bottom: 20px;
+
 }
 
-.card:hover .card-icon {
-    transform: scale(1.15) rotate(5deg);
-}
 
 .card h3 {
-    color: var(--gold-primary);
-    font-size: 24px;
+
+    color: #e3bd61;
+
+    font-size: 25px;
+
     margin-bottom: 15px;
-    letter-spacing: 1px;
+
 }
+
 
 .card p {
-    color: var(--text-sub);
-    font-size: 15px;
+
+    color: #cccccc;
+
+    font-family: Arial, sans-serif;
+
     line-height: 1.7;
-    font-weight: 300;
+
 }
 
+
 /* ============================================================
-   WHY US SECTION
+   WHY US
    ============================================================ */
+
 .features {
-    max-width: 1200px;
+
+    max-width: 1150px;
+
     margin: auto;
+
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 25px;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(200px, 1fr)
+        );
+
+    gap: 20px;
+
 }
+
 
 .feature {
+
     text-align: center;
-    padding: 35px 25px;
-    background: rgba(2, 18, 11, 0.4);
-    border: 1px solid rgba(217, 173, 69, 0.1);
-    border-radius: 20px;
-    transition: all 0.3s ease;
+
+    padding: 30px 15px;
+
 }
 
-.feature:hover {
-    border-color: rgba(217, 173, 69, 0.3);
-    background: rgba(8, 28, 19, 0.5);
-}
 
 .feature-icon {
-    font-size: 40px;
-    margin-bottom: 20px;
+
+    font-size: 45px;
+
+    margin-bottom: 15px;
+
 }
+
 
 .feature h3 {
-    color: var(--text-main);
-    font-size: 18px;
+
+    color: #d9ad45;
+
     margin-bottom: 10px;
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-weight: 600;
+
 }
+
 
 .feature p {
-    color: var(--text-sub);
-    font-size: 14px;
+
+    color: #999999;
+
+    font-family: Arial, sans-serif;
+
     line-height: 1.6;
+
 }
 
+
 /* ============================================================
-   ABOUT & LOCATION (GLASS PANELS)
+   ABOUT
    ============================================================ */
-.glass-panel {
-    max-width: 950px;
+
+.about-box {
+
+    max-width: 1000px;
+
     margin: auto;
-    padding: 60px 40px;
+
+    padding: 55px 35px;
+
     text-align: center;
-    background: var(--bg-card);
-    border: 1px solid var(--glass-border);
-    border-radius: 30px;
-    backdrop-filter: blur(20px);
-    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+
+    background: #092219;
+
+    border:
+        1px solid #604b21;
+
+    border-radius: 25px;
+
 }
+
 
 .about-box p {
-    color: var(--text-sub);
-    font-size: 18px;
-    line-height: 2;
-    font-weight: 300;
-}
 
-.location-box h3 {
-    color: var(--gold-primary);
-    font-size: 32px;
-    margin-bottom: 20px;
-}
+    color: #dddddd;
 
-.location-details {
-    color: var(--text-sub);
+    font-family: Arial, sans-serif;
+
     font-size: 18px;
+
     line-height: 1.9;
-    margin-bottom: 35px;
+
 }
 
-.location-details strong {
-    color: var(--text-main);
+
+.gold {
+
+    color: #d9ad45;
+
 }
+
 
 /* ============================================================
-   SOCIAL SECTION
+   LOCATION
    ============================================================ */
-.social-card {
-    max-width: 700px;
-    margin: 0 auto;
+
+.location-box {
+
+    max-width: 900px;
+
+    margin: auto;
+
+    padding: 55px 25px;
+
     text-align: center;
-    padding: 50px 30px;
-    background: linear-gradient(135deg, rgba(217,173,69,0.05), rgba(4,45,29,0.3));
-    border: 1px solid var(--glass-border);
-    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #0b291c,
+            #061b12
+        );
+
+    border:
+        1px solid #705621;
+
+    border-radius: 25px;
+
 }
 
-.instagram-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    color: var(--gold-primary);
-    font-size: 22px;
+
+.location-box h3 {
+
+    color: #e3bd61;
+
+    font-size: 31px;
+
+    margin-bottom: 20px;
+
+}
+
+
+.location-box p {
+
+    color: #dddddd;
+
+    font-family: Arial, sans-serif;
+
+    line-height: 1.9;
+
+    font-size: 17px;
+
+}
+
+
+/* ============================================================
+   SOCIAL
+   ============================================================ */
+
+.social {
+
+    text-align: center;
+
+}
+
+
+.instagram {
+
+    color: #e3bd61;
+
+    font-size: 27px;
+
     text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    margin-bottom: 25px;
+
+    transition: 0.3s;
+
 }
 
-.instagram-btn:hover {
-    color: #ffffff;
-    transform: scale(1.05);
+
+.instagram:hover {
+
+    color: white;
+
 }
+
 
 /* ============================================================
    FOOTER
    ============================================================ */
+
 footer {
-    padding: 60px 20px;
+
+    padding: 50px 20px;
+
     text-align: center;
-    background: #010805;
-    border-top: 1px solid rgba(217, 173, 69, 0.15);
-    color: #66786e;
-    font-size: 14px;
+
+    background: #020d08;
+
+    border-top:
+        1px solid #604b21;
+
+    color: #888888;
+
+    font-family: Arial, sans-serif;
+
     line-height: 1.8;
+
 }
+
 
 footer strong {
-    color: var(--gold-primary);
+
+    color: #d9ad45;
+
     font-size: 20px;
-    font-family: 'Cinzel', serif;
-    display: block;
-    margin-bottom: 10px;
+
 }
+
 
 /* ============================================================
-   ANIMATIONS
+   MOBILE
    ============================================================ */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
 
-@keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-}
+@media (max-width: 850px) {
 
-/* ============================================================
-   RESPONSIVE DESIGN
-   ============================================================ */
-@media (max-width: 900px) {
+    nav {
+
+        height: auto;
+
+        min-height: 70px;
+
+        padding: 10px 4%;
+
+    }
+
+
     .nav-links {
-        position: fixed;
-        top: var(--nav-height);
-        left: -100%;
-        width: 100%;
-        height: calc(100vh - var(--nav-height));
-        background: rgba(2, 13, 8, 0.98);
-        flex-direction: column;
-        justify-content: center;
-        gap: 40px;
-        transition: left 0.4s ease;
-        backdrop-filter: blur(25px);
+
+        display: none;
+
     }
 
-    .nav-links.active {
-        left: 0;
+
+    .nav-logo {
+
+        font-size: 19px;
+
     }
 
-    .mobile-toggle {
-        display: block;
+
+    .nav-logo img {
+
+        width: 42px;
+
+        height: 42px;
+
     }
+
+
+    .whatsapp-nav {
+
+        padding: 9px 15px;
+
+        font-size: 13px;
+
+    }
+
+
+    .hero {
+
+        padding-top: 110px;
+
+        background-position: center;
+
+    }
+
+
+    .hero-logo {
+
+        width: 110px;
+
+        height: 110px;
+
+    }
+
+
+    .hero h2 {
+
+        letter-spacing: 4px;
+
+    }
+
+
+    .hero-description {
+
+        font-size: 16px;
+
+    }
+
 
     section {
-        padding: 80px 5%;
+
+        padding:
+            75px 5%;
+
     }
+
 }
+
+
+/* ============================================================
+   SMALL MOBILE
+   ============================================================ */
 
 @media (max-width: 480px) {
-    .hero {
-        background-attachment: scroll;
+
+    .hero h1 {
+
+        font-size: 55px;
+
     }
-    
-    .glass-panel {
-        padding: 40px 20px;
+
+
+    .hero h2 {
+
+        font-size: 17px;
+
+        letter-spacing: 3px;
+
     }
+
 
     .button {
+
         width: 100%;
+
+        max-width: 300px;
+
     }
+
 }
+
 </style>
+
 </head>
 
+
 <body>
+
 
 <!-- ============================================================
      NAVIGATION
      ============================================================ -->
+
 <nav>
-    <a href="#home" class="nav-logo">
-        <img src="/logo" alt="Al Rashid Logo">
-        <span>AL RASHID</span>
-    </a>
 
-    <button class="mobile-toggle" id="menuToggle" aria-label="Toggle Navigation">☰</button>
 
-    <ul class="nav-links" id="navLinks">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#collection">Collection</a></li>
-        <li><a href="#why">Why Us</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#location">Store</a></li>
+    <div class="nav-logo">
+
+        <img
+            src="/logo"
+            alt="Al Rashid Logo">
+
+        <span>
+            Al Rashid
+        </span>
+
+    </div>
+
+
+    <ul class="nav-links">
+
+        <li>
+            <a href="#home">
+                Home
+            </a>
+        </li>
+
+        <li>
+            <a href="#collection">
+                Collection
+            </a>
+        </li>
+
+        <li>
+            <a href="#why">
+                Why Us
+            </a>
+        </li>
+
+        <li>
+            <a href="#about">
+                About
+            </a>
+        </li>
+
+        <li>
+            <a href="#location">
+                Location
+            </a>
+        </li>
+
     </ul>
 
-    <a class="whatsapp-nav" href="https://wa.me/919620963982" target="_blank">
-        💬 Connect
+
+    <a
+        class="whatsapp-nav"
+        href="https://wa.me/919620963982"
+        target="_blank">
+
+        WhatsApp
+
     </a>
+
 </nav>
 
-<!-- ============================================================
-     HERO SECTION
-     ============================================================ -->
-<header class="hero" id="home">
-    <div class="hero-content">
-        <span class="hero-badge">Luxury Fragrances & Timepieces</span>
-        
-        <div>
-            <img class="hero-logo" src="/logo" alt="Al Rashid Emblem">
-        </div>
 
-        <h1>AL RASHID</h1>
-        <h2>PERFUME &amp; ATTAR</h2>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+
+<header
+    class="hero"
+    id="home">
+
+
+    <div class="hero-content">
+
+
+        <img
+            class="hero-logo"
+            src="/logo"
+            alt="Al Rashid Perfume & Attar">
+
+
+        <h1>
+            Al Rashid
+        </h1>
+
+
+        <h2>
+            PERFUME &amp; ATTAR
+        </h2>
+
 
         <div class="gold-line"></div>
 
+
         <p class="hero-description">
-            Step into a world of sensory distinction. Discover curated luxury perfumes, authentic pure attars, and elegant timepieces crafted for sophistication.
+
+            Discover premium fragrances,
+            traditional attars and stylish watches
+            designed to make every moment memorable.
+
         </p>
 
+
         <div class="buttons">
-            <a class="button button-gold" href="#collection">
+
+
+            <a
+                class="button button-gold"
+                href="#collection">
+
                 Explore Collection
+
             </a>
-            <a class="button button-outline" href="https://wa.me/919620963982?text=Hello%20Al%20Rashid%2C%20I%20would%20like%20to%20inquire%20about%20your%20luxury%20collection." target="_blank">
-                💬 Order via WhatsApp
+
+
+            <a
+                class="button button-outline"
+
+                href="https://wa.me/919620963982?text=Hello%20Al%20Rashid%2C%20I%20would%20like%20to%20know%20about%20your%20perfumes."
+
+                target="_blank">
+
+                💬 Order on WhatsApp
+
             </a>
+
+
         </div>
+
+
     </div>
+
 </header>
+
+
 
 <!-- ============================================================
      COLLECTION
      ============================================================ -->
+
 <section id="collection">
+
+
     <div class="section-title">
-        <span class="subtitle">Curated Offerings</span>
-        <h2>The Signature Collection</h2>
+
+        <h2>
+            Our Collection
+        </h2>
+
+        <p>
+            Discover something made for you.
+        </p>
+
     </div>
+
 
     <div class="cards">
-        <div class="card">
-            <div class="card-icon">🌹</div>
-            <h3>Luxury Perfumes</h3>
-            <p>Opulent and long-lasting fine spray fragrances blended for signature presence and daily sophistication.</p>
-        </div>
+
 
         <div class="card">
-            <div class="card-icon">🪔</div>
-            <h3>Pure Attars</h3>
-            <p>Non-alcoholic, traditional oil-based concentrates extracted from natural notes, rare spices, and rich woods.</p>
+
+            <div class="card-icon">
+                🌹
+            </div>
+
+            <h3>
+                Premium Perfumes
+            </h3>
+
+            <p>
+                Elegant and sophisticated
+                fragrances for everyday wear
+                and special occasions.
+            </p>
+
         </div>
 
-        <div class="card">
-            <div class="card-icon">⌚</div>
-            <h3>Luxury Watches</h3>
-            <p>Meticulously designed timepieces that blend timeless aesthetics with modern durability.</p>
-        </div>
 
         <div class="card">
-            <div class="card-icon">✨</div>
-            <h3>Exotic Editions</h3>
-            <p>Exclusive seasonal releases, concentrated oudh extracts, and limited-edition gift boxes.</p>
+
+            <div class="card-icon">
+                🪔
+            </div>
+
+            <h3>
+                Attars
+            </h3>
+
+            <p>
+                Traditional and modern attars
+                with rich and distinctive
+                fragrance profiles.
+            </p>
+
         </div>
+
+
+        <div class="card">
+
+            <div class="card-icon">
+                ⌚
+            </div>
+
+            <h3>
+                Watches
+            </h3>
+
+            <p>
+                Stylish watches designed to
+                complement your personality
+                and everyday style.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-icon">
+                ✨
+            </div>
+
+            <h3>
+                New Arrivals
+            </h3>
+
+            <p>
+                Explore our latest fragrances,
+                collections and new additions.
+            </p>
+
+        </div>
+
+
     </div>
+
 </section>
+
+
 
 <!-- ============================================================
      WHY US
      ============================================================ -->
+
 <section id="why">
+
+
     <div class="section-title">
-        <span class="subtitle">Excellence Guaranteed</span>
-        <h2>Why Choose Al Rashid</h2>
+
+        <h2>
+            Why Choose Al Rashid?
+        </h2>
+
+        <p>
+            Quality • Fragrance • Service
+        </p>
+
     </div>
+
 
     <div class="features">
-        <div class="feature">
-            <div class="feature-icon">💎</div>
-            <h3>Artisanal Quality</h3>
-            <p>Carefully sourced ingredients yielding true-to-character depth.</p>
-        </div>
+
 
         <div class="feature">
-            <div class="feature-icon">⏳</div>
-            <h3>Long Lasting Sillage</h3>
-            <p>Formulations specifically designed to linger throughout the day.</p>
+
+            <div class="feature-icon">
+                💎
+            </div>
+
+            <h3>
+                Premium Quality
+            </h3>
+
+            <p>
+                Carefully selected fragrances
+                and products.
+            </p>
+
         </div>
 
-        <div class="feature">
-            <div class="feature-icon">👑</div>
-            <h3>Fair Luxury</h3>
-            <p>Uncompromising premium scents offered at accessible pricing.</p>
-        </div>
 
         <div class="feature">
-            <div class="feature-icon">🤝</div>
-            <h3>Personalized Advice</h3>
-            <p>Tailored scent matching to complement your unique personality.</p>
+
+            <div class="feature-icon">
+                ⏳
+            </div>
+
+            <h3>
+                Long Lasting
+            </h3>
+
+            <p>
+                Fragrances made to stay
+                with you.
+            </p>
+
         </div>
+
+
+        <div class="feature">
+
+            <div class="feature-icon">
+                💰
+            </div>
+
+            <h3>
+                Great Prices
+            </h3>
+
+            <p>
+                Premium choices at
+                attractive prices.
+            </p>
+
+        </div>
+
+
+        <div class="feature">
+
+            <div class="feature-icon">
+                ❤️
+            </div>
+
+            <h3>
+                Customer First
+            </h3>
+
+            <p>
+                Your satisfaction is
+                important to us.
+            </p>
+
+        </div>
+
+
     </div>
+
 </section>
+
+
 
 <!-- ============================================================
      ABOUT
      ============================================================ -->
+
 <section id="about">
+
+
     <div class="section-title">
-        <span class="subtitle">Our Legacy</span>
-        <h2>About Al Rashid</h2>
+
+        <h2>
+            About Al Rashid
+        </h2>
+
     </div>
 
-    <div class="glass-panel about-box">
+
+    <div class="about-box">
+
+
         <p>
-            Welcome to <strong style="color: var(--gold-primary); font-family: 'Cinzel', serif;">Al Rashid Perfume &amp; Attar</strong>. 
+
+            Welcome to
+
+            <strong class="gold">
+                Al Rashid Perfume &amp; Attar
+            </strong>.
+
             <br><br>
-            Rooted in the rich heritage of oriental perfumery, we bring you an unmatched assortment of signature perfumes, authentic concentrated attars, and exquisite watches. 
+
+            We offer a collection of
+            premium perfumes, traditional
+            attars and stylish watches.
+
             <br><br>
-            Whether you are seeking an enduring everyday scent, an imposing luxury gift, or a statement piece to define your look, our boutique delivers fragrances crafted to make every moment memorable.
+
+            Whether you are looking for
+            a signature fragrance,
+            a special gift or something
+            for everyday use, discover
+            fragrances that suit your
+            personality and style.
+
         </p>
+
+
     </div>
+
 </section>
 
+
+
 <!-- ============================================================
-     LOCATION & STORE
+     LOCATION
      ============================================================ -->
+
 <section id="location">
+
+
     <div class="section-title">
-        <span class="subtitle">Visit Boutique</span>
-        <h2>Experience In Person</h2>
+
+        <h2>
+            Visit Our Store
+        </h2>
+
     </div>
 
-    <div class="glass-panel location-box">
-        <h3>Al Rashid Perfume &amp; Attar</h3>
-        
-        <div class="location-details">
-            📍 MG Road, Kolar, Karnataka<br>
-            <span style="color: var(--gold-primary); font-size: 15px;">(Next to Parvath Sports)</span>
+
+    <div class="location-box">
+
+
+        <h3>
+            Al Rashid Perfume &amp; Attar
+        </h3>
+
+
+        <p>
+
+            📍 MG Road,
+            Kolar, Karnataka
+
+            <br>
+
+            Next to Parvath Sports
+
             <br><br>
-            📞 <strong>+91 96209 63982</strong>
-        </div>
+
+            📞 +91 96209 63982
+
+        </p>
+
+
+        <br>
+
 
         <div class="buttons">
-            <a class="button button-gold" href="https://www.google.com/maps/search/?api=1&query=Al+Rashid+Perfume+Attar+MG+Road+Kolar" target="_blank">
+
+
+            <a
+                class="button button-gold"
+
+                href="https://www.google.com/maps/search/?api=1&query=Al+Rashid+Perfume+Attar+MG+Road+Kolar"
+
+                target="_blank">
+
                 📍 Open Google Maps
+
             </a>
-            <a class="button button-outline" href="https://wa.me/919620963982" target="_blank">
-                💬 Direct WhatsApp
+
+
+            <a
+                class="button button-outline"
+
+                href="https://wa.me/919620963982"
+
+                target="_blank">
+
+                💬 WhatsApp Us
+
             </a>
+
+
         </div>
+
+
     </div>
+
 </section>
+
+
 
 <!-- ============================================================
-     SOCIAL
+     INSTAGRAM
      ============================================================ -->
+
 <section>
-    <div class="social-card">
-        <div class="section-title" style="margin-bottom: 30px;">
-            <span class="subtitle">Stay Connected</span>
-            <h2>Follow Our Journey</h2>
+
+
+    <div class="social">
+
+
+        <div class="section-title">
+
+            <h2>
+                Follow Us
+            </h2>
+
+            <p>
+                New arrivals, fragrances and updates.
+            </p>
+
         </div>
 
-        <a class="instagram-btn" href="https://www.instagram.com/alrashid.luxury/" target="_blank">
+
+        <a
+            class="instagram"
+
+            href="https://www.instagram.com/alrashid.luxury/"
+
+            target="_blank">
+
             📸 @alrashid.luxury
+
         </a>
 
-        <div>
-            <a class="button button-gold" href="https://wa.me/919620963982" target="_blank">
-                💬 Chat with Us
-            </a>
-        </div>
+
+        <br><br><br>
+
+
+        <a
+            class="button button-gold"
+
+            href="https://wa.me/919620963982"
+
+            target="_blank">
+
+            💬 Chat on WhatsApp
+
+        </a>
+
+
     </div>
+
 </section>
+
+
 
 <!-- ============================================================
      FOOTER
      ============================================================ -->
+
 <footer>
-    <strong>AL RASHID</strong>
-    <p>Luxury Perfumes • Concentrated Attars • Fine Watches</p>
-    <p style="margin-top: 6px;">MG Road, Kolar, Karnataka | +91 96209 63982</p>
+
+    <strong>
+        Al Rashid Perfume &amp; Attar
+    </strong>
+
     <br>
-    <p>© 2026 Al Rashid Luxury. All Rights Reserved.</p>
+
+    Premium Perfumes
+    •
+    Attars
+    •
+    Watches
+
+    <br>
+
+    MG Road,
+    Kolar,
+    Karnataka
+
+    <br>
+
+    +91 96209 63982
+
+    <br><br>
+
+    © 2026
+    Al Rashid.
+    All Rights Reserved.
+
 </footer>
 
-<!-- JavaScript for Mobile Menu & Interactivity -->
-<script>
-    const toggle = document.getElementById('menuToggle');
-    const links = document.getElementById('navLinks');
-
-    toggle.addEventListener('click', () => {
-        links.classList.toggle('active');
-        toggle.textContent = links.classList.contains('active') ? '✕' : '☰';
-    });
-
-    // Close menu when clicking links on mobile
-    document.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', () => {
-            links.classList.remove('active');
-            toggle.textContent = '☰';
-        });
-    });
-</script>
 
 </body>
+
 </html>
 """
 
@@ -935,6 +1520,7 @@ def home():
 # ============================================================
 
 if __name__ == "__main__":
+
     port = int(os.environ.get("PORT", 5000))
 
     app.run(
