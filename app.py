@@ -55,6 +55,40 @@ Al Rashid | Perfume & Attar
 </title>
 
 
+<!-- ============================================================
+     SOCIAL MEDIA PREVIEW (OPEN GRAPH & TWITTER CARDS)
+     ============================================================ -->
+
+<meta property="og:type" content="website">
+
+<meta property="og:title"
+      content="Al Rashid | Perfume & Attar">
+
+<meta property="og:description"
+      content="Discover premium perfumes, luxury attars, and stylish watches at Al Rashid, Kolar.">
+
+<meta property="og:image"
+      content="https://YOUR-RENDER-DOMAIN/logo">
+
+<meta property="og:url"
+      content="https://YOUR-RENDER-DOMAIN/">
+
+<meta property="og:site_name"
+      content="Al Rashid">
+
+<meta name="twitter:card"
+      content="summary_large_image">
+
+<meta name="twitter:title"
+      content="Al Rashid | Perfume & Attar">
+
+<meta name="twitter:description"
+      content="Premium Perfumes & Luxury Attars in Kolar">
+
+<meta name="twitter:image"
+      content="https://YOUR-RENDER-DOMAIN/logo">
+
+
 <style>
 
 /* ============================================================
@@ -1448,84 +1482,84 @@ footer strong {
         <a
             class="button button-gold"
 
-            href="https://wa.me/919620963982"
-
-            target="_blank">
-
-            💬 Chat on WhatsApp
-
-        </a>
-
-
-    </div>
-
-</section>
-
-
-
-<!-- ============================================================
-     FOOTER
-     ============================================================ -->
-
-<footer>
-
-    <strong>
-        Al Rashid Perfume &amp; Attar
-    </strong>
-
-    <br>
-
-    Premium Perfumes
-    •
-    Attars
-    •
-    Watches
-
-    <br>
-
-    MG Road,
-    Kolar,
-    Karnataka
-
-    <br>
-
-    +91 96209 63982
-
-    <br><br>
-
-    © 2026
-    Al Rashid.
-    All Rights Reserved.
-
-</footer>
-
-
-</body>
-
-</html>
-"""
-
-
-# ============================================================
-# HOME PAGE
-# ============================================================
-
-@app.route("/")
-def home():
-    return render_template_string(HTML)
-
-
-# ============================================================
-# LOCAL / RENDER SERVER
-# ============================================================
-
-if __name__ == "__main__":
-
-    port = int(os.environ.get("PORT", 5000))
-
-    app.run(
-        host="0.0.0.0",
-        port=port,
-        debug=False,
-        use_reloader=False
+            href="https://wa.me/919620963982" 
+ 
+            target="_blank"> 
+ 
+            💬 Chat on WhatsApp 
+ 
+        </a> 
+ 
+ 
+    </div> 
+ 
+</section> 
+ 
+ 
+ 
+<!-- ============================================================ 
+     FOOTER 
+     ============================================================ --> 
+ 
+<footer> 
+ 
+    <strong> 
+        Al Rashid Perfume &amp; Attar 
+    </strong> 
+ 
+    <br> 
+ 
+    Premium Perfumes 
+    • 
+    Attars 
+    • 
+    Watches 
+ 
+    <br> 
+ 
+    MG Road, 
+    Kolar, 
+    Karnataka 
+ 
+    <br> 
+ 
+    +91 96209 63982 
+ 
+    <br><br> 
+ 
+    © 2026 
+    Al Rashid. 
+    All Rights Reserved. 
+ 
+</footer> 
+ 
+ 
+</body> 
+ 
+</html> 
+""" 
+ 
+ 
+# ============================================================ 
+# HOME PAGE 
+# ============================================================ 
+ 
+@app.route("/") 
+def home(): 
+    return render_template_string(HTML) 
+ 
+ 
+# ============================================================ 
+# LOCAL / RENDER SERVER 
+# ============================================================ 
+ 
+if __name__ == "__main__": 
+ 
+    port = int(os.environ.get("PORT", 5000)) 
+ 
+    app.run( 
+        host="0.0.0.0", 
+        port=port, 
+        debug=False, 
+        use_reloader=False 
     )
