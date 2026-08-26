@@ -1,26 +1,35 @@
 from flask import Flask, render_template_string, send_from_directory
+import os
+
+# ============================================================
+# FLASK SETUP
+# ============================================================
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 app = Flask(__name__)
 
+
 # ============================================================
 # IMAGE ROUTES
-# Images are directly inside the same folder as app.py
+# Images are directly beside app.py
 # ============================================================
 
 @app.route("/logo")
 def logo():
-    return send_from_directory(".", "LOGO.jpeg")
+    return send_from_directory(BASE_DIR, "LOGO.jpeg")
 
 
 @app.route("/cover")
 def cover():
-    return send_from_directory(".", "COVER_PAGE.png")
+    return send_from_directory(BASE_DIR, "COVER_PAGE.png")
+
 
 # ============================================================
-# MAIN WEBSITE
+# WEBSITE HTML
 # ============================================================
 
-HTML = """
+HTML = r"""
 <!DOCTYPE html>
 
 <html lang="en">
@@ -38,22 +47,29 @@ HTML = """
 <meta name="keywords"
       content="Al Rashid, Al Rashid Perfume, Attar, Perfume Kolar, Premium Perfume, Watches Kolar">
 
-<title>Al Rashid | Perfume & Attar</title>
+<meta name="theme-color"
+      content="#03140d">
+
+<title>
+Al Rashid | Perfume & Attar
+</title>
 
 
 <style>
 
 /* ============================================================
-   BASIC
+   RESET
    ============================================================ */
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    scroll-behavior: smooth;
 }
 
+html {
+    scroll-behavior: smooth;
+}
 
 body {
 
@@ -80,14 +96,13 @@ nav {
     position: fixed;
 
     top: 0;
-
     left: 0;
 
     width: 100%;
 
-    height: 75px;
+    height: 76px;
 
-    z-index: 9999;
+    z-index: 1000;
 
     display: flex;
 
@@ -98,12 +113,12 @@ nav {
     padding: 10px 5%;
 
     background:
-        rgba(3, 20, 13, 0.94);
+        rgba(2, 18, 11, 0.96);
 
     backdrop-filter: blur(15px);
 
     border-bottom:
-        1px solid rgba(217, 173, 69, 0.4);
+        1px solid rgba(217, 173, 69, 0.35);
 
 }
 
@@ -118,7 +133,7 @@ nav {
 
     color: #d9ad45;
 
-    font-size: 23px;
+    font-size: 24px;
 
     font-weight: bold;
 
@@ -138,9 +153,11 @@ nav {
 }
 
 
-nav ul {
+.nav-links {
 
     display: flex;
+
+    align-items: center;
 
     gap: 30px;
 
@@ -149,11 +166,11 @@ nav ul {
 }
 
 
-nav ul li a {
+.nav-links a {
+
+    color: #ffffff;
 
     text-decoration: none;
-
-    color: #eeeeee;
 
     font-family: Arial, sans-serif;
 
@@ -164,28 +181,42 @@ nav ul li a {
 }
 
 
-nav ul li a:hover {
+.nav-links a:hover {
 
     color: #d9ad45;
 
 }
 
 
-.nav-whatsapp {
+.whatsapp-nav {
 
-    padding: 11px 20px;
+    display: inline-block;
+
+    padding: 12px 22px;
 
     border-radius: 30px;
 
     background: #d9ad45;
 
-    color: #061b12 !important;
+    color: #071b11 !important;
 
     font-family: Arial, sans-serif;
 
     font-weight: bold;
 
     text-decoration: none;
+
+    transition: 0.3s;
+
+}
+
+
+.whatsapp-nav:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 25px rgba(217,173,69,.3);
 
 }
 
@@ -198,6 +229,8 @@ nav ul li a:hover {
 
     min-height: 100vh;
 
+    position: relative;
+
     display: flex;
 
     align-items: center;
@@ -207,16 +240,15 @@ nav ul li a:hover {
     text-align: center;
 
     padding:
-        120px 20px
-        70px;
+        120px 20px 80px;
 
-    position: relative;
+    background-color: #03140d;
 
-    background:
+    background-image:
 
         linear-gradient(
-            rgba(2, 15, 9, 0.58),
-            rgba(2, 15, 9, 0.90)
+            rgba(2, 16, 10, 0.60),
+            rgba(2, 16, 10, 0.88)
         ),
 
         url("/cover");
@@ -225,12 +257,12 @@ nav ul li a:hover {
 
     background-position: center;
 
-    background-attachment: fixed;
+    background-repeat: no-repeat;
 
 }
 
 
-.hero::after {
+.hero::before {
 
     content: "";
 
@@ -241,8 +273,8 @@ nav ul li a:hover {
     background:
         radial-gradient(
             circle at center,
-            transparent 15%,
-            rgba(0,0,0,.35) 100%
+            rgba(217,173,69,.08),
+            transparent 55%
         );
 
     pointer-events: none;
@@ -258,6 +290,8 @@ nav ul li a:hover {
 
     max-width: 1000px;
 
+    width: 100%;
+
 }
 
 
@@ -269,12 +303,12 @@ nav ul li a:hover {
 
     object-fit: contain;
 
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 
     filter:
         drop-shadow(
             0 0 25px
-            rgba(217,173,69,.6)
+            rgba(217,173,69,.65)
         );
 
 }
@@ -285,27 +319,28 @@ nav ul li a:hover {
     font-size:
         clamp(55px, 9vw, 110px);
 
-    color: #e5bd5c;
+    line-height: 1;
 
-    letter-spacing: 3px;
+    color: #e8bd59;
+
+    letter-spacing: 2px;
 
     text-shadow:
-        0 5px 30px
-        rgba(0,0,0,.9);
+        0 5px 30px rgba(0,0,0,.8);
 
 }
 
 
 .hero h2 {
 
+    margin-top: 20px;
+
     font-size:
         clamp(18px, 3vw, 30px);
 
     letter-spacing: 8px;
 
-    color: white;
-
-    margin-top: 10px;
+    color: #ffffff;
 
 }
 
@@ -318,22 +353,23 @@ nav ul li a:hover {
 
     background: #d9ad45;
 
-    margin: 28px auto;
+    margin: 30px auto;
 
 }
 
 
 .hero-description {
 
-    max-width: 720px;
+    max-width: 760px;
 
-    margin: 0 auto 30px;
+    margin:
+        0 auto 32px;
 
     color: #eeeeee;
 
     font-family: Arial, sans-serif;
 
-    font-size: 19px;
+    font-size: 18px;
 
     line-height: 1.8;
 
@@ -348,9 +384,9 @@ nav ul li a:hover {
 
     display: flex;
 
-    justify-content: center;
-
     align-items: center;
+
+    justify-content: center;
 
     flex-wrap: wrap;
 
@@ -373,7 +409,7 @@ nav ul li a:hover {
 
     font-weight: bold;
 
-    transition: .3s;
+    transition: 0.3s;
 
 }
 
@@ -394,12 +430,15 @@ nav ul li a:hover {
 
     color: #d9ad45;
 
+    background:
+        rgba(0,0,0,.12);
+
 }
 
 
 .button:hover {
 
-    transform: translateY(-5px);
+    transform: translateY(-4px);
 
     box-shadow:
         0 12px 30px
@@ -409,7 +448,7 @@ nav ul li a:hover {
 
 
 /* ============================================================
-   GENERAL SECTIONS
+   SECTION
    ============================================================ */
 
 section {
@@ -442,7 +481,7 @@ section {
 
     margin-top: 15px;
 
-    color: #999;
+    color: #999999;
 
     font-family: Arial, sans-serif;
 
@@ -450,7 +489,7 @@ section {
 
 
 /* ============================================================
-   COLLECTION CARDS
+   COLLECTION
    ============================================================ */
 
 .cards {
@@ -479,7 +518,6 @@ section {
     text-align: center;
 
     background:
-
         linear-gradient(
             145deg,
             #0d301f,
@@ -491,7 +529,7 @@ section {
 
     border-radius: 20px;
 
-    transition: .4s;
+    transition: 0.4s;
 
 }
 
@@ -511,7 +549,7 @@ section {
 
 .card-icon {
 
-    font-size: 52px;
+    font-size: 50px;
 
     margin-bottom: 20px;
 
@@ -522,7 +560,7 @@ section {
 
     color: #e3bd61;
 
-    font-size: 26px;
+    font-size: 25px;
 
     margin-bottom: 15px;
 
@@ -592,7 +630,7 @@ section {
 
 .feature p {
 
-    color: #999;
+    color: #999999;
 
     font-family: Arial, sans-serif;
 
@@ -646,7 +684,7 @@ section {
 
 
 /* ============================================================
-   STORE / LOCATION
+   LOCATION
    ============================================================ */
 
 .location-box {
@@ -660,7 +698,6 @@ section {
     text-align: center;
 
     background:
-
         linear-gradient(
             145deg,
             #0b291c,
@@ -718,7 +755,7 @@ section {
 
     text-decoration: none;
 
-    transition: .3s;
+    transition: 0.3s;
 
 }
 
@@ -745,7 +782,7 @@ footer {
     border-top:
         1px solid #604b21;
 
-    color: #888;
+    color: #888888;
 
     font-family: Arial, sans-serif;
 
@@ -767,18 +804,20 @@ footer strong {
    MOBILE
    ============================================================ */
 
-@media(max-width: 850px) {
+@media (max-width: 850px) {
 
     nav {
 
         height: auto;
 
-        padding: 12px 5%;
+        min-height: 70px;
+
+        padding: 10px 4%;
 
     }
 
 
-    nav ul {
+    .nav-links {
 
         display: none;
 
@@ -792,7 +831,16 @@ footer strong {
     }
 
 
-    .nav-whatsapp {
+    .nav-logo img {
+
+        width: 42px;
+
+        height: 42px;
+
+    }
+
+
+    .whatsapp-nav {
 
         padding: 9px 15px;
 
@@ -803,7 +851,18 @@ footer strong {
 
     .hero {
 
-        background-attachment: scroll;
+        padding-top: 110px;
+
+        background-position: center;
+
+    }
+
+
+    .hero-logo {
+
+        width: 110px;
+
+        height: 110px;
 
     }
 
@@ -811,6 +870,13 @@ footer strong {
     .hero h2 {
 
         letter-spacing: 4px;
+
+    }
+
+
+    .hero-description {
+
+        font-size: 16px;
 
     }
 
@@ -824,6 +890,38 @@ footer strong {
 
 }
 
+
+/* ============================================================
+   SMALL MOBILE
+   ============================================================ */
+
+@media (max-width: 480px) {
+
+    .hero h1 {
+
+        font-size: 55px;
+
+    }
+
+
+    .hero h2 {
+
+        font-size: 17px;
+
+        letter-spacing: 3px;
+
+    }
+
+
+    .button {
+
+        width: 100%;
+
+        max-width: 300px;
+
+    }
+
+}
 
 </style>
 
@@ -839,6 +937,7 @@ footer strong {
 
 <nav>
 
+
     <div class="nav-logo">
 
         <img
@@ -852,7 +951,7 @@ footer strong {
     </div>
 
 
-    <ul>
+    <ul class="nav-links">
 
         <li>
             <a href="#home">
@@ -888,7 +987,7 @@ footer strong {
 
 
     <a
-        class="nav-whatsapp"
+        class="whatsapp-nav"
         href="https://wa.me/919620963982"
         target="_blank">
 
@@ -908,6 +1007,7 @@ footer strong {
     class="hero"
     id="home">
 
+
     <div class="hero-content">
 
 
@@ -923,7 +1023,7 @@ footer strong {
 
 
         <h2>
-            PERFUME & ATTAR
+            PERFUME &amp; ATTAR
         </h2>
 
 
@@ -1006,15 +1106,12 @@ footer strong {
             </h3>
 
             <p>
-
                 Elegant and sophisticated
                 fragrances for everyday wear
                 and special occasions.
-
             </p>
 
         </div>
-
 
 
         <div class="card">
@@ -1028,15 +1125,12 @@ footer strong {
             </h3>
 
             <p>
-
                 Traditional and modern attars
                 with rich and distinctive
                 fragrance profiles.
-
             </p>
 
         </div>
-
 
 
         <div class="card">
@@ -1050,15 +1144,12 @@ footer strong {
             </h3>
 
             <p>
-
                 Stylish watches designed to
                 complement your personality
                 and everyday style.
-
             </p>
 
         </div>
-
 
 
         <div class="card">
@@ -1072,10 +1163,8 @@ footer strong {
             </h3>
 
             <p>
-
                 Explore our latest fragrances,
                 collections and new additions.
-
             </p>
 
         </div>
@@ -1088,7 +1177,7 @@ footer strong {
 
 
 <!-- ============================================================
-     WHY AL RASHID
+     WHY US
      ============================================================ -->
 
 <section id="why">
@@ -1128,7 +1217,6 @@ footer strong {
         </div>
 
 
-
         <div class="feature">
 
             <div class="feature-icon">
@@ -1147,7 +1235,6 @@ footer strong {
         </div>
 
 
-
         <div class="feature">
 
             <div class="feature-icon">
@@ -1164,7 +1251,6 @@ footer strong {
             </p>
 
         </div>
-
 
 
         <div class="feature">
@@ -1215,7 +1301,7 @@ footer strong {
             Welcome to
 
             <strong class="gold">
-                Al Rashid Perfume & Attar
+                Al Rashid Perfume &amp; Attar
             </strong>.
 
             <br><br>
@@ -1262,17 +1348,14 @@ footer strong {
 
 
         <h3>
-            Al Rashid Perfume & Attar
+            Al Rashid Perfume &amp; Attar
         </h3>
 
 
         <p>
 
-            📍
-
-            MG Road,
-            Kolar,
-            Karnataka
+            📍 MG Road,
+            Kolar, Karnataka
 
             <br>
 
@@ -1280,8 +1363,7 @@ footer strong {
 
             <br><br>
 
-            📞
-            +91 96209 63982
+            📞 +91 96209 63982
 
         </p>
 
@@ -1387,14 +1469,11 @@ footer strong {
 
 <footer>
 
-
     <strong>
-        Al Rashid Perfume & Attar
+        Al Rashid Perfume &amp; Attar
     </strong>
 
-
     <br>
-
 
     Premium Perfumes
     •
@@ -1402,28 +1481,21 @@ footer strong {
     •
     Watches
 
-
     <br>
-
 
     MG Road,
     Kolar,
     Karnataka
 
-
     <br>
-
 
     +91 96209 63982
 
-
     <br><br>
-
 
     © 2026
     Al Rashid.
     All Rights Reserved.
-
 
 </footer>
 
@@ -1440,19 +1512,20 @@ footer strong {
 
 @app.route("/")
 def home():
-
     return render_template_string(HTML)
 
 
 # ============================================================
-# RUN WEBSITE
+# LOCAL / RENDER SERVER
 # ============================================================
 
 if __name__ == "__main__":
 
+    port = int(os.environ.get("PORT", 5000))
+
     app.run(
         host="0.0.0.0",
-        port=5000,
+        port=port,
         debug=False,
         use_reloader=False
     )
