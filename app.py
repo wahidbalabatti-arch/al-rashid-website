@@ -1,3 +1,4 @@
+```python
 from flask import Flask, render_template_string, send_from_directory, request
 import os
 
@@ -78,7 +79,6 @@ HTML = r"""
 
 <!-- ============================================================
      OPEN GRAPH
-     WhatsApp / Facebook / Social Preview
      ============================================================ -->
 
 <meta property="og:type"
@@ -137,9 +137,11 @@ Al Rashid | Perfume & Attar
     box-sizing: border-box;
 }
 
+
 html {
     scroll-behavior: smooth;
 }
+
 
 body {
 
@@ -1344,9 +1346,7 @@ footer strong {
 
             <a
                 class="button button-outline"
-
-                href="https://wa.me/919620963982?text=Hello%20Al%20Rashid%2C%20I%20would%20like%20to%20know%20about%20your%20perfumes."
-
+                href="https://wa.me/919620963982?text=Hello%20Al%20Rashid%2C%20I%20would%20like%20to%20know%20about%20your%20perfumes"
                 target="_blank">
 
                 💬 Order on WhatsApp
@@ -1671,9 +1671,7 @@ footer strong {
 
             <a
                 class="button button-gold"
-
                 href="https://www.google.com/maps/search/?api=1&query=Al+Rashid+Perfume+Attar+MG+Road+Kolar"
-
                 target="_blank">
 
                 📍 Open Google Maps
@@ -1683,9 +1681,7 @@ footer strong {
 
             <a
                 class="button button-outline"
-
                 href="https://wa.me/919620963982"
-
                 target="_blank">
 
                 💬 WhatsApp Us
@@ -1762,7 +1758,7 @@ footer strong {
 
             <a
                 class="share-btn primary"
-                href="https://wa.me/?text={{ share_message }}"
+                href="https://wa.me/?text={{ share_message | urlencode }}"
                 target="_blank">
 
                 💬 Share on WhatsApp
@@ -1852,9 +1848,7 @@ footer strong {
 
         <a
             class="instagram"
-
             href="https://www.instagram.com/alrashid.luxury/"
-
             target="_blank">
 
             📸 @alrashid.luxury
@@ -1867,9 +1861,7 @@ footer strong {
 
         <a
             class="button button-gold"
-
             href="https://wa.me/919620963982"
-
             target="_blank">
 
             💬 Chat on WhatsApp
@@ -2070,3 +2062,32 @@ if __name__ == "__main__":
         use_reloader=False
 
     )
+```
+
+**The actual change is this:**
+
+```html
+<div class="card">
+
+    <div class="card-icon">
+        🧴
+    </div>
+
+    <h3>
+        Attars
+    </h3>
+
+    <p>
+        Traditional and modern attars
+        with rich and distinctive
+        fragrance profiles.
+    </p>
+
+</div>
+```
+
+So your Collection now visually has:
+
+**🌹 Premium Perfumes | 🧴 Attars | ⌚ Watches | ✨ New Arrivals**
+
+This is more appropriate for a perfume/attar store than the previous 🪔 diya symbol.
