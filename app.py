@@ -9,13 +9,12 @@ app = Flask(__name__)
 
 @app.route("/logo")
 def logo():
-    return send_from_directory(".", "LOGO.JPEG")
+    return send_from_directory(".", "LOGO.jpeg")
 
 
 @app.route("/cover")
 def cover():
-    return send_from_directory(".", "COVER PAGE.jpeg")
-
+    return send_from_directory(".", "COVER_PAGE.png")
 
 # ============================================================
 # MAIN WEBSITE
