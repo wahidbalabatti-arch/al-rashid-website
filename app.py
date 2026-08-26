@@ -12,7 +12,7 @@ app = Flask(__name__)
 
 # ============================================================
 # WEBSITE URL
-# Automatically detects local / Render URL
+# Automatically detects Render / deployed domain
 # ============================================================
 
 def get_site_url():
@@ -21,6 +21,7 @@ def get_site_url():
 
 # ============================================================
 # IMAGE ROUTES
+# Images are directly beside app.py
 # ============================================================
 
 @app.route("/logo")
@@ -71,15 +72,13 @@ HTML = r"""
 <meta name="author"
       content="Al Rashid Perfume & Attar">
 
-<meta name="robots"
-      content="index, follow">
-
 <meta name="theme-color"
       content="#03140d">
 
 
 <!-- ============================================================
      OPEN GRAPH
+     WhatsApp / Facebook / Social Preview
      ============================================================ -->
 
 <meta property="og:type"
@@ -138,11 +137,9 @@ Al Rashid | Perfume & Attar
     box-sizing: border-box;
 }
 
-
 html {
     scroll-behavior: smooth;
 }
-
 
 body {
 
@@ -157,28 +154,6 @@ body {
 
     overflow-x: hidden;
 
-}
-
-
-/* ============================================================
-   SCROLLBAR
-   ============================================================ */
-
-::-webkit-scrollbar {
-    width: 8px;
-}
-
-::-webkit-scrollbar-track {
-    background: #020d08;
-}
-
-::-webkit-scrollbar-thumb {
-    background: #80642b;
-    border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: #d9ad45;
 }
 
 
@@ -208,12 +183,12 @@ nav {
     padding: 10px 5%;
 
     background:
-        rgba(2, 18, 11, 0.94);
+        rgba(2, 18, 11, 0.96);
 
-    backdrop-filter: blur(18px);
+    backdrop-filter: blur(15px);
 
     border-bottom:
-        1px solid rgba(217,173,69,.35);
+        1px solid rgba(217, 173, 69, 0.35);
 
 }
 
@@ -232,8 +207,6 @@ nav {
 
     font-weight: bold;
 
-    letter-spacing: .5px;
-
 }
 
 
@@ -246,12 +219,6 @@ nav {
     object-fit: contain;
 
     border-radius: 50%;
-
-    filter:
-        drop-shadow(
-            0 0 10px
-            rgba(217,173,69,.3)
-        );
 
 }
 
@@ -279,7 +246,7 @@ nav {
 
     font-size: 15px;
 
-    transition: .3s;
+    transition: 0.3s;
 
 }
 
@@ -309,7 +276,7 @@ nav {
 
     text-decoration: none;
 
-    transition: .3s;
+    transition: 0.3s;
 
 }
 
@@ -350,8 +317,8 @@ nav {
     background-image:
 
         linear-gradient(
-            rgba(2,16,10,.58),
-            rgba(2,16,10,.90)
+            rgba(2, 16, 10, 0.60),
+            rgba(2, 16, 10, 0.88)
         ),
 
         url("/cover");
@@ -376,7 +343,7 @@ nav {
     background:
         radial-gradient(
             circle at center,
-            rgba(217,173,69,.10),
+            rgba(217,173,69,.08),
             transparent 55%
         );
 
@@ -410,25 +377,9 @@ nav {
 
     filter:
         drop-shadow(
-            0 0 28px
+            0 0 25px
             rgba(217,173,69,.65)
         );
-
-    animation:
-        logoFloat 4s ease-in-out infinite;
-
-}
-
-
-@keyframes logoFloat {
-
-    0%,100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-7px);
-    }
 
 }
 
@@ -473,9 +424,6 @@ nav {
     background: #d9ad45;
 
     margin: 30px auto;
-
-    box-shadow:
-        0 0 15px rgba(217,173,69,.45);
 
 }
 
@@ -531,7 +479,7 @@ nav {
 
     font-weight: bold;
 
-    transition: .3s;
+    transition: 0.3s;
 
     cursor: pointer;
 
@@ -542,18 +490,9 @@ nav {
 
 .button-gold {
 
-    background:
-        linear-gradient(
-            135deg,
-            #e7c263,
-            #c9972e
-        );
+    background: #d9ad45;
 
     color: #061b12;
-
-    box-shadow:
-        0 8px 25px
-        rgba(217,173,69,.16);
 
 }
 
@@ -566,7 +505,7 @@ nav {
     color: #d9ad45;
 
     background:
-        rgba(0,0,0,.15);
+        rgba(0,0,0,.12);
 
 }
 
@@ -577,13 +516,13 @@ nav {
 
     box-shadow:
         0 12px 30px
-        rgba(217,173,69,.30);
+        rgba(217,173,69,.25);
 
 }
 
 
 /* ============================================================
-   SECTIONS
+   SECTION
    ============================================================ */
 
 section {
@@ -638,7 +577,7 @@ section {
     grid-template-columns:
         repeat(
             auto-fit,
-            minmax(240px,1fr)
+            minmax(240px, 1fr)
         );
 
     gap: 25px;
@@ -664,7 +603,7 @@ section {
 
     border-radius: 20px;
 
-    transition: .4s;
+    transition: 0.4s;
 
 }
 
@@ -728,7 +667,7 @@ section {
     grid-template-columns:
         repeat(
             auto-fit,
-            minmax(200px,1fr)
+            minmax(200px, 1fr)
         );
 
     gap: 20px;
@@ -788,20 +727,12 @@ section {
 
     text-align: center;
 
-    background:
-        linear-gradient(
-            145deg,
-            rgba(13,48,31,.95),
-            rgba(6,27,18,.95)
-        );
+    background: #092219;
 
     border:
         1px solid #604b21;
 
     border-radius: 25px;
-
-    box-shadow:
-        0 20px 60px rgba(0,0,0,.25);
 
 }
 
@@ -880,7 +811,7 @@ section {
 
 
 /* ============================================================
-   PREMIUM SHARE SECTION
+   SHARE WEBSITE
    ============================================================ */
 
 .share-section {
@@ -892,128 +823,51 @@ section {
 }
 
 
-.share-section::before {
-
-    content: "";
-
-    position: absolute;
-
-    width: 500px;
-
-    height: 500px;
-
-    border-radius: 50%;
-
-    background:
-        rgba(217,173,69,.035);
-
-    filter: blur(50px);
-
-    top: 0;
-
-    left: 50%;
-
-    transform: translateX(-50%);
-
-    pointer-events: none;
-
-}
-
-
 .share-box {
 
-    position: relative;
-
-    max-width: 950px;
+    max-width: 900px;
 
     margin: auto;
 
-    padding: 65px 35px;
+    padding: 60px 30px;
 
     text-align: center;
 
     background:
         linear-gradient(
             145deg,
-            rgba(16,51,35,.96),
-            rgba(4,22,14,.98)
+            #0d301f,
+            #061b12
         );
 
     border:
-        1px solid rgba(217,173,69,.55);
+        1px solid #80642b;
 
-    border-radius: 32px;
+    border-radius: 28px;
 
     box-shadow:
-        0 30px 90px rgba(0,0,0,.45),
-
-        inset 0 0 50px
-        rgba(217,173,69,.025);
-
-    overflow: hidden;
-
-}
-
-
-.share-box::before {
-
-    content: "";
-
-    position: absolute;
-
-    top: -2px;
-
-    left: 10%;
-
-    width: 80%;
-
-    height: 1px;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            #d9ad45,
-            transparent
-        );
+        0 25px 70px rgba(0,0,0,.35);
 
 }
 
 
 .share-logo {
 
-    width: 105px;
+    width: 90px;
 
-    height: 105px;
+    height: 90px;
 
     object-fit: contain;
 
     border-radius: 50%;
 
-    margin-bottom: 22px;
+    margin-bottom: 20px;
 
     filter:
         drop-shadow(
-            0 0 25px
-            rgba(217,173,69,.55)
+            0 0 20px
+            rgba(217,173,69,.5)
         );
-
-}
-
-
-.share-small {
-
-    color: #d9ad45;
-
-    font-family: Arial, sans-serif;
-
-    font-size: 12px;
-
-    letter-spacing: 4px;
-
-    text-transform: uppercase;
-
-    margin-bottom: 12px;
 
 }
 
@@ -1023,7 +877,7 @@ section {
     color: #e8bd59;
 
     font-size:
-        clamp(30px,5vw,52px);
+        clamp(32px, 5vw, 50px);
 
     margin-bottom: 15px;
 
@@ -1032,10 +886,9 @@ section {
 
 .share-box p {
 
-    max-width: 680px;
+    max-width: 650px;
 
-    margin:
-        0 auto 28px;
+    margin: 0 auto 25px;
 
     color: #cccccc;
 
@@ -1043,7 +896,7 @@ section {
 
     font-size: 17px;
 
-    line-height: 1.8;
+    line-height: 1.7;
 
 }
 
@@ -1060,9 +913,9 @@ section {
 
     white-space: nowrap;
 
-    padding: 14px 22px;
+    padding: 13px 20px;
 
-    margin-bottom: 30px;
+    margin-bottom: 28px;
 
     border-radius: 30px;
 
@@ -1072,52 +925,12 @@ section {
     color: #d9ad45;
 
     background:
-        rgba(0,0,0,.22);
+        rgba(0,0,0,.18);
 
     font-family: Arial, sans-serif;
 
-    font-size: 14px;
-
 }
 
-
-/* ============================================================
-   QR CODE
-   ============================================================ */
-
-.qr-container {
-
-    margin:
-        10px auto 30px;
-
-    width: 170px;
-
-    padding: 12px;
-
-    background: #ffffff;
-
-    border-radius: 18px;
-
-    box-shadow:
-        0 15px 45px rgba(0,0,0,.4);
-
-}
-
-
-.qr-container img {
-
-    display: block;
-
-    width: 100%;
-
-    height: auto;
-
-}
-
-
-/* ============================================================
-   SHARE BUTTONS
-   ============================================================ */
 
 .share-buttons {
 
@@ -1136,15 +949,13 @@ section {
 
 .share-btn {
 
-    padding: 13px 21px;
+    padding: 13px 22px;
 
     border-radius: 30px;
 
-    border:
-        1px solid #d9ad45;
+    border: 1px solid #d9ad45;
 
-    background:
-        transparent;
+    background: transparent;
 
     color: #e8bd59;
 
@@ -1174,21 +985,20 @@ section {
 
 .share-btn.primary {
 
-    background:
-        linear-gradient(
-            135deg,
-            #e7c263,
-            #c9972e
-        );
+    background: #d9ad45;
 
     color: #061b12;
 
 }
 
 
+/* ============================================================
+   SHARE MESSAGE
+   ============================================================ */
+
 #share-status {
 
-    margin-top: 20px;
+    margin-top: 18px;
 
     color: #d9ad45;
 
@@ -1220,7 +1030,7 @@ section {
 
     text-decoration: none;
 
-    transition: .3s;
+    transition: 0.3s;
 
 }
 
@@ -1238,7 +1048,7 @@ section {
 
 footer {
 
-    padding: 55px 20px;
+    padding: 50px 20px;
 
     text-align: center;
 
@@ -1261,83 +1071,6 @@ footer strong {
     color: #d9ad45;
 
     font-size: 20px;
-
-}
-
-
-/* ============================================================
-   FLOATING BUTTONS
-   ============================================================ */
-
-.floating-buttons {
-
-    position: fixed;
-
-    right: 20px;
-
-    bottom: 20px;
-
-    z-index: 999;
-
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 12px;
-
-}
-
-
-.floating-button {
-
-    width: 54px;
-
-    height: 54px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    border-radius: 50%;
-
-    text-decoration: none;
-
-    font-size: 24px;
-
-    box-shadow:
-        0 8px 25px rgba(0,0,0,.45);
-
-    transition: .3s;
-
-}
-
-
-.floating-button:hover {
-
-    transform: scale(1.1);
-
-}
-
-
-.floating-whatsapp {
-
-    background: #d9ad45;
-
-    color: #061b12;
-
-}
-
-
-.floating-map {
-
-    background: #0d301f;
-
-    color: #e3bd61;
-
-    border:
-        1px solid #d9ad45;
 
 }
 
@@ -1430,14 +1163,6 @@ footer strong {
 
     }
 
-
-    .share-box {
-
-        padding:
-            50px 22px;
-
-    }
-
 }
 
 
@@ -1485,23 +1210,7 @@ footer strong {
 
         max-width: 100%;
 
-        font-size: 12px;
-
-    }
-
-
-    .qr-container {
-
-        width: 155px;
-
-    }
-
-
-    .floating-buttons {
-
-        right: 15px;
-
-        bottom: 15px;
+        font-size: 13px;
 
     }
 
@@ -1676,6 +1385,8 @@ footer strong {
     <div class="cards">
 
 
+        <!-- PREMIUM PERFUMES -->
+
         <div class="card">
 
             <div class="card-icon">
@@ -1695,10 +1406,12 @@ footer strong {
         </div>
 
 
+        <!-- ATTARS -->
+
         <div class="card">
 
             <div class="card-icon">
-                🪔
+                🧴
             </div>
 
             <h3>
@@ -1713,6 +1426,8 @@ footer strong {
 
         </div>
 
+
+        <!-- WATCHES -->
 
         <div class="card">
 
@@ -1732,6 +1447,8 @@ footer strong {
 
         </div>
 
+
+        <!-- NEW ARRIVALS -->
 
         <div class="card">
 
@@ -1985,7 +1702,7 @@ footer strong {
 
 
 <!-- ============================================================
-     PREMIUM SHARE WEBSITE
+     SHARE WEBSITE
      ============================================================ -->
 
 <section
@@ -2000,7 +1717,7 @@ footer strong {
         </h2>
 
         <p>
-            Let your friends discover something special.
+            Share our website with your friends and family.
         </p>
 
     </div>
@@ -2015,45 +1732,25 @@ footer strong {
             alt="Al Rashid Logo">
 
 
-        <div class="share-small">
-            AL RASHID PERFUME &amp; ATTAR
-        </div>
-
-
         <h2>
-            Share the Fragrance
+            Know Someone Who Loves Fragrance?
         </h2>
 
 
         <p>
 
-            Know someone who loves perfumes,
-            attars or stylish watches?
-
-            <br>
-
-            Share the Al Rashid experience
-            with them.
+            Share Al Rashid Perfume &amp; Attar
+            with your friends and help them
+            discover premium perfumes,
+            luxury attars and stylish watches
+            in Kolar.
 
         </p>
 
 
-        <!-- WEBSITE LINK -->
-
         <div class="share-link">
 
             {{ site_url }}
-
-        </div>
-
-
-        <!-- QR CODE -->
-
-        <div class="qr-container">
-
-            <img
-                src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data={{ site_url | urlencode }}"
-                alt="Scan to visit Al Rashid website">
 
         </div>
 
@@ -2065,12 +1762,10 @@ footer strong {
 
             <a
                 class="share-btn primary"
-
-                href="https://wa.me/?text={{ share_message | urlencode }}"
-
+                href="https://wa.me/?text={{ share_message }}"
                 target="_blank">
 
-                💬 WhatsApp
+                💬 Share on WhatsApp
 
             </a>
 
@@ -2079,9 +1774,7 @@ footer strong {
 
             <a
                 class="share-btn"
-
                 href="https://www.facebook.com/sharer/sharer.php?u={{ site_url | urlencode }}"
-
                 target="_blank">
 
                 Facebook
@@ -2089,13 +1782,11 @@ footer strong {
             </a>
 
 
-            <!-- X -->
+            <!-- X / Twitter -->
 
             <a
                 class="share-btn"
-
                 href="https://twitter.com/intent/tweet?text={{ share_text | urlencode }}&url={{ site_url | urlencode }}"
-
                 target="_blank">
 
                 𝕏 Share
@@ -2103,7 +1794,7 @@ footer strong {
             </a>
 
 
-            <!-- Native share -->
+            <!-- Native mobile share -->
 
             <button
                 class="share-btn"
@@ -2114,7 +1805,7 @@ footer strong {
             </button>
 
 
-            <!-- Copy -->
+            <!-- Copy link -->
 
             <button
                 class="share-btn"
@@ -2239,51 +1930,12 @@ footer strong {
 
 
 <!-- ============================================================
-     FLOATING BUTTONS
-     ============================================================ -->
-
-<div class="floating-buttons">
-
-
-    <a
-        class="floating-button floating-whatsapp"
-
-        href="https://wa.me/919620963982"
-
-        target="_blank"
-
-        aria-label="WhatsApp">
-
-        💬
-
-    </a>
-
-
-    <a
-        class="floating-button floating-map"
-
-        href="https://www.google.com/maps/search/?api=1&query=Al+Rashid+Perfume+Attar+MG+Road+Kolar"
-
-        target="_blank"
-
-        aria-label="Google Maps">
-
-        📍
-
-    </a>
-
-
-</div>
-
-
-<!-- ============================================================
-     JAVASCRIPT
+     SHARE JAVASCRIPT
      ============================================================ -->
 
 <script>
 
 const websiteURL = {{ site_url | tojson }};
-
 
 const shareText =
     "Discover Al Rashid Perfume & Attar — premium perfumes, luxury attars and stylish watches in Kolar.";
@@ -2301,14 +1953,11 @@ async function nativeShare() {
 
             await navigator.share({
 
-                title:
-                    "Al Rashid | Perfume & Attar",
+                title: "Al Rashid | Perfume & Attar",
 
-                text:
-                    shareText,
+                text: shareText,
 
-                url:
-                    websiteURL
+                url: websiteURL
 
             });
 
@@ -2316,9 +1965,7 @@ async function nativeShare() {
 
         catch (error) {
 
-            console.log(
-                "Share cancelled."
-            );
+            console.log("Share cancelled.");
 
         }
 
@@ -2334,28 +1981,21 @@ async function nativeShare() {
 
 
 /* ============================================================
-   COPY LINK
+   COPY WEBSITE LINK
    ============================================================ */
 
 async function copyWebsite() {
 
     try {
 
-        await navigator.clipboard.writeText(
-            websiteURL
-        );
+        await navigator.clipboard.writeText(websiteURL);
 
-        document
-            .getElementById("share-status")
-            .innerText =
+        document.getElementById("share-status").innerText =
             "✓ Website link copied successfully!";
-
 
         setTimeout(function() {
 
-            document
-                .getElementById("share-status")
-                .innerText = "";
+            document.getElementById("share-status").innerText = "";
 
         }, 3000);
 
@@ -2363,9 +2003,7 @@ async function copyWebsite() {
 
     catch (error) {
 
-        document
-            .getElementById("share-status")
-            .innerText =
+        document.getElementById("share-status").innerText =
             "Please copy the website address manually.";
 
     }
@@ -2391,11 +2029,9 @@ def home():
     site_url = get_site_url()
 
     share_message = (
-        "✨ Discover Al Rashid Perfume & Attar ✨\n\n"
-        "Premium perfumes, luxury attars and stylish watches "
-        "in Kolar.\n\n"
-        "Visit our website:\n"
-        + site_url
+        "Discover Al Rashid Perfume & Attar — "
+        "premium perfumes, luxury attars and stylish watches "
+        "in Kolar. Visit: " + site_url
     )
 
     share_text = (
@@ -2404,11 +2040,8 @@ def home():
 
     return render_template_string(
         HTML,
-
         site_url=site_url,
-
         share_message=share_message,
-
         share_text=share_text
     )
 
